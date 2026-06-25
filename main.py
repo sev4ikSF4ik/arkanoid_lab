@@ -18,3 +18,13 @@ screen = pygame.display.set_mode((WIDTH, HEIGHT))
 pygame.display.set_caption('Arkanoid CI/CD')
 clock = pygame.time.Clock()
 
+class Paddle:
+    def __init__(self):
+        self.rect = pygame.Rect(WIDTH // 2 - 60, HEIGHT - 40, 120, 15)
+    def draw(self):
+        pygame.draw.rect(screen, PADDLE_COLOR, self.rect)
+    def move(self, dx):
+        self.rect.x += dx
+        if self.rect.left < 0: self.rect.left = 0
+        if self.rect.right > WIDTH: self.rect.right = WIDTH
+
