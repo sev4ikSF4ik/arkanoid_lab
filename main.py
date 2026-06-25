@@ -53,3 +53,8 @@ while True:
             pygame.quit()
             sys.exit()
 
+    keys = pygame.key.get_pressed()
+    if keys[pygame.K_LEFT]: paddle.move(-8)
+    if keys[pygame.K_RIGHT]: paddle.move(8)
+    ball.move()
+
