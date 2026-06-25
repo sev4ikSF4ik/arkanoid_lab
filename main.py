@@ -58,3 +58,9 @@ while True:
     if keys[pygame.K_RIGHT]: paddle.move(8)
     ball.move()
 
+    if ball.rect.colliderect(paddle.rect) and ball.dy > 0: ball.dy *= -1
+    hit_index = ball.rect.collidelist(bricks)
+    if hit_index != -1:
+        hit_rect = bricks.pop(hit_index)
+        ball.dy *= -1
+
