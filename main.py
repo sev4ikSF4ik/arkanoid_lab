@@ -28,3 +28,18 @@ class Paddle:
         if self.rect.left < 0: self.rect.left = 0
         if self.rect.right > WIDTH: self.rect.right = WIDTH
 
+class Ball:
+    def __init__(self, speed):
+        self.rect = pygame.Rect(WIDTH // 2, HEIGHT // 2, 15, 15)
+        self.dx = speed
+        self.dy = -speed
+    def draw(self):
+        pygame.draw.ellipse(screen, BALL_COLOR, self.rect)
+    def move(self):
+        self.rect.x += self.dx
+        self.rect.y += self.dy
+        if self.rect.left < 0 or self.rect.right > WIDTH:
+            self.dx *= -1
+        if self.rect.top < 0:
+            self.dy *= -1
+
