@@ -64,3 +64,13 @@ while True:
         hit_rect = bricks.pop(hit_index)
         ball.dy *= -1
 
+    if ball.rect.bottom > HEIGHT:
+        print('Game Over!')
+        pygame.quit()
+        sys.exit()
+    screen.fill(BG_COLOR)
+    paddle.draw()
+    ball.draw()
+    for b in bricks: pygame.draw.rect(screen, BRICK_COLOR, b)
+    pygame.display.flip()
+    clock.tick(60)
