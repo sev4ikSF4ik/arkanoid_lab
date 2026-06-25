@@ -47,3 +47,9 @@ paddle = Paddle()
 ball = Ball(args.speed)
 bricks = [pygame.Rect(15 + i * 78, 20 + j * 35, 70, 25) for i in range(10) for j in range(5)]
 
+while True:
+    for event in pygame.event.get():
+        if event.type == pygame.QUIT:
+            pygame.quit()
+            sys.exit()
+
